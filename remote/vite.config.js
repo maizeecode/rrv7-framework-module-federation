@@ -1,18 +1,19 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { reactRouter } from "@react-router/dev/vite";
 import federation from '@originjs/vite-plugin-federation'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    reactRouter(),
     federation({
       name: "remote_app",
       filename: "remoteEntry.js",
       exposes: {
-        './Button': './src/components/Button'
+        './Button': './app/components/Button.tsx',
+        './Home': './app/routes/home.tsx'
       },
-      shared: ['react','react-dom']
+      shared: ['react']
     })
   ],
   build: {
