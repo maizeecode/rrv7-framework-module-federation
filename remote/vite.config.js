@@ -13,7 +13,7 @@ export default defineConfig({
         './Button': './app/components/Button.tsx',
         './Home': './app/routes/home.tsx'
       },
-      shared: ['react']
+      // shared: ['react']
     })
   ],
   build: {
